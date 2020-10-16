@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,6 +12,7 @@
   <link rel="stylesheet" href="css/atom-one-dark-reasonable.css">
   <script src="scripts/highlight.pack.js"></script>
   <script src="scripts/main.js"></script>
+  <link rel="stylesheet" href="css/main.css">
   <!-- <script>hljs.initHighlightingOnLoad();</script> -->
   <title>Bucle FOR</title>
 </head>
@@ -28,77 +28,87 @@
     <div class=row>
       <div class="col my-4">
         Instrucciones:
-        <p>Ingresa los datos solicitados en los cuadros, y luego el bucle se completará con los mismos.</p>
+        <p>Ingresa los datos solicitados en los cuadros, y luego el bucle se completará con los mismos. El primer cuadro es para el nombre de la variable que hará de iterador. El segundo cuadro, para el numero (entero) de inicio del bucle. El tercer cuadro, para el numero final. Nota que el valor de inicio puede ser mayor, igual o menor que el valor final. El ultimo cuadro es para marcar el paso del bucle (cuanto avanzará o retrocederá el iterador en cada bucle). Finalmente, selecciona a la derecha el sentido del operador de comparación. Las combinaciones ilegales, así como los bucles infinitos (buffer overflow, o desbordamiento de pila) serán notificados. ¡Juega con los valores! Si encuentras un problema o error, por favor avísame a <a href="mailto:duberlygfr@gmail.com">duberlygfr@gmail.com</a>.</p>
+        <p class="text-muted"><small>*Por Duberly Guarnizo</small></p>
       </div>
     </div>
-
+    <div class="row justify-content-md-center">
+      <div class="col" id="alerts"></div>
+    </div>
     <div class="row">
-
       <div class="col-6">
-        <div class="input-group input-group-sm flex-nowrap mb-2 w-75">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="for_i">Iterador&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <div id="values_card" class="card">
+          <div class="card-body">
+            <div class="input-group input-group-sm flex-nowrap mb-2 w-75">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="for_i">Iter.&nbsp;&nbsp;</span>
+              </div>
+              <input id="input_for_i" type="text" maxlength="10" class="form-control" placeholder="variable" value="i"
+                aria-label="Iterador" aria-describedby="for_i" required>
+            </div>
+            <div class="input-group input-group-sm mb-2 w-75">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="for_start">Inicio</span>
+              </div>
+              <input id="input_for_start" type="number" maxlength="3" class="form-control" placeholder="0" value="0"
+                aria-label="Inicio" aria-describedby="for_start" required>
+            </div>
+            <div class="input-group input-group-sm mb-2 w-75">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="for_end">Fin&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              </div>
+              <input id="input_for_end" type="number" maxlength="3" class="form-control" placeholder="m" value="5"
+                aria-label="Final" aria-describedby="for_end" required>
+            </div>
+            <div class="input-group input-group-sm mb-2 w-75">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="for_increment">Paso&nbsp;&nbsp;</span>
+              </div>
+              <input id="input_for_increment" type="number" maxlength="2" class="form-control" placeholder="1" value="1"
+                aria-label="Paso" aria-describedby="for_increment" required>
+            </div>
           </div>
-          <input id="input_for_i" type="text" class="form-control" placeholder="i" value="i" aria-label="Iterador"
-            aria-describedby="for_i">
-        </div>
-        <div class="input-group input-group-sm mb-2 w-75">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="for_start">Valor inicial</span>
-          </div>
-          <input id="input_for_start" type="number" class="form-control" placeholder="0" value="0" aria-label="Inicio"
-            aria-describedby="for_start">
-        </div>
-        <div class="input-group input-group-sm mb-2 w-75">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="for_end">Valor final&nbsp;&nbsp;</span>
-          </div>
-          <input id="input_for_end" type="number" class="form-control" placeholder="m" value="5" aria-label="Final"
-            aria-describedby="for_end">
-        </div>
-        <div class="input-group input-group-sm mb-2 w-75">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="for_increment">Incremento </span>
-          </div>
-          <input id="input_for_increment" type="number" class="form-control" placeholder="1" value="1" aria-label="Paso"
-            aria-describedby="for_increment">
         </div>
       </div>
       <div class="col-6 text-center">
-        <p>Selecciona el tipo de relacion entre el iterador y el valor final:</p>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary active">
-            <input type="radio" name="comparator" id="option1" value="&gt"> &gt;
-          </label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="comparator" id="option2" value="&gt;="> &gt;=
-          </label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="comparator" id="option3" value="&lt;="> &lt;=
-          </label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="comparator" id="option3" value="&lt;" checked> &lt;
-          </label>
+        <div id="comparators_card" class="card">
+          <div class="card-body">
+            <p>Selecciona el tipo de relacion entre el iterador y el valor final:</p>
+            <div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary">
+                <input type="radio" name="comparator" id="option1" value="&gt">&gt;
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="comparator" id="option2" value="&gt;=">&gt;=
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="comparator" id="option3" value="&lt;=">&lt;=
+              </label>
+              <label class="btn btn-secondary active">
+                <input type="radio" name="comparator" id="option3" value="&lt;" checked>&lt;
+              </label>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="row justify-content-md-center py-4">
-      <div class="col-sm-auto">
-        <pre id="code_area" class="java"
-          style="font-size: 3vw;">for (int i = 0; i < 5; i++){<br>    // Muestra valor del iterador<br>    System.out.println(i);<br>}</pre>
-      </div>
-    </div>
-    <div class="row mb-3">
+    <div class="row my-3">
       <div class="col">
-        <pResultados de la evaluacion del bucle: <p class="text-center lead" id="execution_results">
-          </p>
+        <p class="text-center lead" id="execution_results"></p>
       </div>
     </div>
-    <div class="row">
-
-      <div class="col" id="alerts"></div>
+    <div class="row justify-content-md-center py-1">
+      <div class="col-sm-auto">
+        <div id="code_card" class="card">
+          <div class="card-body">
+            <pre id="code_area" class="java"
+              style="font-size: 2.5vw;">for (int i = 0; i < 5; i++){<br>    // Muestra valor del iterador<br>    System.out.println(i);<br>}</pre>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  
 </body>
 
 </html>
