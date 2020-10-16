@@ -12,7 +12,7 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/atom-one-dark-reasonable.css">
   <script src="scripts/highlight.pack.js"></script>
-  <script src = "scripts/main.js"></script>
+  <script src="scripts/main.js"></script>
   <!-- <script>hljs.initHighlightingOnLoad();</script> -->
   <title>Bucle FOR</title>
 </head>
@@ -30,7 +30,7 @@
         Instrucciones:
         <p>Ingresa los datos solicitados en los cuadros, y luego el bucle se completará con los mismos.</p>
       </div>
-    </div> 
+    </div>
 
     <div class="row">
 
@@ -39,25 +39,29 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="for_i">Iterador&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
           </div>
-          <input id="input_for_i" type="text" class="form-control" placeholder="i" value="i" aria-label="Iterador" aria-describedby="for_i">
+          <input id="input_for_i" type="text" class="form-control" placeholder="i" value="i" aria-label="Iterador"
+            aria-describedby="for_i">
         </div>
         <div class="input-group input-group-sm mb-2 w-75">
           <div class="input-group-prepend">
             <span class="input-group-text" id="for_start">Valor inicial</span>
           </div>
-          <input id="input_for_start" type="number" class="form-control" placeholder="0" value="0" aria-label="Inicio" aria-describedby="for_start">
+          <input id="input_for_start" type="number" class="form-control" placeholder="0" value="0" aria-label="Inicio"
+            aria-describedby="for_start">
         </div>
         <div class="input-group input-group-sm mb-2 w-75">
           <div class="input-group-prepend">
             <span class="input-group-text" id="for_end">Valor final&nbsp;&nbsp;</span>
           </div>
-          <input id="input_for_end" type="number" class="form-control" placeholder="m" value="5" aria-label="Final" aria-describedby="for_end">
+          <input id="input_for_end" type="number" class="form-control" placeholder="m" value="5" aria-label="Final"
+            aria-describedby="for_end">
         </div>
         <div class="input-group input-group-sm mb-2 w-75">
           <div class="input-group-prepend">
             <span class="input-group-text" id="for_increment">Incremento </span>
           </div>
-          <input id="input_for_increment" type="number" class="form-control" placeholder="1" value="1" aria-label="Paso" aria-describedby="for_increment">
+          <input id="input_for_increment" type="number" class="form-control" placeholder="1" value="1" aria-label="Paso"
+            aria-describedby="for_increment">
         </div>
       </div>
       <div class="col-6 text-center">
@@ -67,7 +71,7 @@
             <input type="radio" name="comparator" id="option1" value="&gt"> &gt;
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="comparator" id="option2" value="&gt;=" > &gt;=
+            <input type="radio" name="comparator" id="option2" value="&gt;="> &gt;=
           </label>
           <label class="btn btn-secondary">
             <input type="radio" name="comparator" id="option3" value="&lt;="> &lt;=
@@ -80,16 +84,18 @@
     </div>
     <div class="row justify-content-md-center py-4">
       <div class="col-sm-auto">
-        <pre id="code_area" class="java" style="font-size: 3vw;">for (int i = 0; i < 5; i++){<br>    // Muestra valor del iterador<br>    System.out.println(i);<br>}</pre>
+        <pre id="code_area" class="java"
+          style="font-size: 3vw;">for (int i = 0; i < 5; i++){<br>    // Muestra valor del iterador<br>    System.out.println(i);<br>}</pre>
       </div>
     </div>
     <div class="row mb-3">
       <div class="col">
-        <pResultados de la evaluacion del bucle:
-        <p class="text-center lead" id="execution_results"></p>
+        <pResultados de la evaluacion del bucle: <p class="text-center lead" id="execution_results">
+          </p>
       </div>
     </div>
     <div class="row">
+
       <div class="col" id="alerts"></div>
     </div>
   </div>
